@@ -2,7 +2,6 @@ package one.innovation.digital.beerStockManager.controller;
 
 import lombok.AllArgsConstructor;
 import one.innovation.digital.beerStockManager.dto.BeerDTO;
-import one.innovation.digital.beerStockManager.entity.Beer;
 import one.innovation.digital.beerStockManager.exception.BeerAlreadyRegisteredException;
 import one.innovation.digital.beerStockManager.exception.BeerNotFoundException;
 import one.innovation.digital.beerStockManager.service.BeerService;
