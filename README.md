@@ -8,9 +8,9 @@ Foram utilizados neste projeto:
 Back-end
 * Java 11
 * Springboot 2.4.1
-* Gradle
+* Maven
 * Lombok
-* ModelMapper
+* MapStruct
 * H2 Database
 * JPA
 * Spring validation
