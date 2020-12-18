@@ -1,9 +1,6 @@
 package one.innovation.digital.beerStockManager.service;
 
 import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.ToString;
 import one.innovation.digital.beerStockManager.dto.BeerDTO;
 import one.innovation.digital.beerStockManager.entity.Beer;
 import one.innovation.digital.beerStockManager.exception.BeerAlreadyRegisteredException;
@@ -77,5 +74,16 @@ public class BeerService {
             return beerMapper.toDTO(incrementedBeerStock);
         }
         throw new BeerStockExceedException(id, quantityToIncrement);
+    }
+
+    public BeerDTO decrement(Long id, int quantityToDecrement) throws BeerNotFoundException, BeerStockExceedException {
+        Beer beerToDecrementStock = verifyIfExists(id);
+        int quantityAfterDecrement = beerToDecrementStock.getQuantity() - quantityToDecrement;
+        if (quantityAfterDecrement >= 0 ) {
+            beerToDecrementStock.setQuantity(beerToDecrementStock.getQuantity() - quantityToDecrement);
+            Beer incrementedBeerStock = beerRepository.save(beerToDecrementStock);
+            return beerMapper.toDTO(incrementedBeerStock);
+        }
+        throw new BeerStockExceedException(id, quantityToDecrement);
     }
 }
